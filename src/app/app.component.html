@@ -1,0 +1,17 @@
+<!-- [headerIcon]="false" -->
+<app-accordion 
+    *ngIf="data$ | async as data"
+    >
+    @for (item of data; track $index) {
+        <app-accordion-tab 
+            [header]="item.header" 
+            >
+            <!-- [isSelected]="isSelected"
+            (isSelectedEmitter)="isSelected = !isSelected" -->
+            {{ item?.content }}
+            {{$index}}
+        </app-accordion-tab>
+    }
+</app-accordion>
+
+<router-outlet></router-outlet>
